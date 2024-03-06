@@ -1,19 +1,4 @@
-* {
-    /* box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: white; */
-}
-
-html { 
-    /* background-color: #e0d7d7;  */
-} 
 body {
-    /* min-height: 75vh;
-    max-width: 75vw; */
-    /* background-color: papayawhip; */
-    /* margin: 100px; */
-    /* border: 5px solid; */
     margin: 5%;
     background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
     height: 100vh;
@@ -32,24 +17,24 @@ body::before {
     z-index: -20;
 }
 
-main{
-   /* margin: 20px;
-   border: 5px solid; */
-}
 .cs-seccionPpal{
     border-radius: 24px;
     border: 1px solid #1875E8;
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
     background-size: 100% 100%;
-    /* background-image: url("img/Ruido.png"); */
-    /* height: 100vh; */
+    background-image: url("img/Ruido.png");
 }
 .cs-tituloPpal{
-    margin: 20px;
+    margin: 10px;
     color: white;
     text-align: center;
     /* background-color: red; */
      /* border: 5px solid; */
+}
+h1 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: clamp(1.5rem, 1vw + 1.7rem, 5rem);
+    padding-bottom: 1rem;    
 }
 
 .cs-contenedor2{
@@ -70,6 +55,179 @@ main{
      /* border: 5px solid; */
 }
 
+p,
+button {
+    font-family: 'Inter', sans-serif;
+}
+
+.cs-textoNumero {
+    font-size: clamp(1.3rem, 1vw + 1rem, 3rem);
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+.cs-numero{ /* Ojoooo buscar si este clase existe en el HTML*/
+    /* width: 70%;
+    height: 3em;
+    border-radius: 16px;
+    background-color: #FFF;
+    border: none;
+    color: #1875E8;
+    font-size: 34px;
+    font-family: 'Inter', sans-serif; */
+    height: 25px;    
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+      /* -webkit-appearance: none;  */
+      margin: 0;
+}
+
+input[type=number] { 
+    /* -moz-appearance: textfield;
+    appearance: textfield; */
+    margin: 0; 
+    line-height: 100px;
+}
+/* El siguiente codigo funciona solo para algunos navegadores */
+/* input[type=number] {
+    height: 50px;
+    font-size: 20px;
+}
+input[type=number]:hover::-webkit-inner-spin-button {  
+    width: 30px;
+    height: 45px;
+    
+} */
+
+/* Chrome, Safari, Edge, Opera */
+/* .cs-numero[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    cursor:pointer;
+    display:block;
+    width:8px;
+    color: #333;
+    text-align:center;
+    position:relative;
+}
+
+input[type=number]::-webkit-inner-spin-button:before,
+input[type=number]::-webkit-inner-spin-button:after {
+    content: "^";
+    position:absolute;
+    right: 0;
+    font-family:monospace;
+    line-height: 25px
+}
+input[type=number]::-webkit-inner-spin-button:before {
+    top:0px;
+}
+
+input[type=number]::-webkit-inner-spin-button:after {
+    bottom:0px;
+    -webkit-transform: rotate(180deg);
+} */
+
+
+/* Firefox */
+/* input[type=number] {
+    -moz-appearance: textfield;
+} */
+
+
+/*  */
+select {
+    /* -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none; */
+    /* outline:0; */
+    /* box-shadow:none; */
+    border:0!important;
+    background: #1875E8;
+    /* background-image: none; */
+    flex: 1;
+    /* padding: 0 .5em; */
+    color:#fff;
+    cursor:pointer;
+    font-size: 1em;
+    /* font-family: 'Open Sans', sans-serif; */
+ }
+ select::-ms-expand {
+    display: none;
+ }
+ select[disabled]{
+    color: rebeccapurple;
+ }
+ .select {
+    position: relative;
+    display: flex;
+    width: 50%;
+    height: 3em;
+    line-height: 3;
+    /* background:white; */
+    overflow: hidden;
+    border-radius: .25em;
+ }
+ .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #898989;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+ .select:hover::after {
+    color: white;
+ }
+ option:disabled{
+    color:black;
+}
+#id-nroIntentos:disabled{ /* funciona cuando desde Javascript se le asigna el atributo disables al elementos*/
+    /* background: #898989; */
+    background-color: #898989;
+}
+/*  */
+
+.cs-botones{
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    width: 100%;
+    /* width: 50%; */
+    /* background-color: rebeccapurple; */    
+}
+
+.cs-boton{
+    width: 34%;
+    height: 3em;
+    border-radius: .5em;
+    background: #1875E8;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    /* padding: 16px 24px; */
+    /* width: 100%; */    
+    /* margin-top: 2rem; */
+}
+.cs-boton:disabled {
+    background: #898989;
+}
+.cs-boton:hover {      
+    box-shadow: 0 0 20px orange;
+    border-color: orange;
+    cursor: pointer; 
+}
+
+.cs-boton[disabled] {
+   box-shadow: none;
+ }
+
 .cs-imagen{
     margin: 20px;
     display: flex;
@@ -86,59 +244,115 @@ main{
     /* width: 100%; */
     /* background-color: aquamarine; */
 }
-
-.cs-numero{
-    width: 70%;
-    height: 3em;
-    border-radius: 16px;
-    background-color: #FFF;
-    border: none;
-    color: #1875E8;
-    font-size: 24px;
-    font-family: 'Inter', sans-serif;
-}
-.cs-botones{
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    width: 100%;
-    /* width: 50%; */
-    /* background-color: rebeccapurple; */    
-}
-.cs-boton{
-    width: 34%;
-    height: 3em;
-    border-radius: 16px;
-    background: #1875E8;
-    font-size: 24px;
-    font-weight: 700;
-    border: none;
-    /* padding: 16px 24px; */
-    /* width: 100%; */    
-    /* margin-top: 2rem; */
-}
-.cs-boton:disabled {
-    background: #898989;
-}
-
 .cs-imagen-persona{
-    width: 20em;
+    width: 25em;
     /* height: 100px; */
 }
 
-h1 {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: clamp(1.5rem, 1vw + 1.7rem, 5rem);
-    padding-bottom: 3rem;    
-}
 
-p,
-button {
-    font-family: 'Inter', sans-serif;
+
+/* boton animado */
+.center {
+    width: 75%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+  }
+  .number-input {
+    width: 380px;
+    height: 150px;
+    /* background: rgb(249, 207, 0); */
+    /* background-color: white; */
+    background: #898989;;
+    border-radius: .5em;
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: poppins;
+    transform-style: preserve-3d;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    transition: 0.25s;
+  }
+  .btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgb(141, 63, 172);
+    /* background: gray; */
+    color: black;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+.btn:disabled{
+    background: #898989;
+    
 }
-.cs-textoNumero {
-    font-size: clamp(1.3rem, 1vw + 1.5rem, 3rem);
-    font-weight: 400;
-    color: white;
-    text-align: center;
-}
+  .btn span {
+    font-size: 55px;
+  }
+  .btn:active::before {
+    position: absolute;
+    content: "";
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    animation: ripple 0.25s ease-out;
+  }
+  @keyframes ripple {
+    0% {
+      width: 80px;
+      height: 80px;
+      opacity: 0.8;
+    }
+    100% {
+      width: 30px;
+      height: 30px;
+      opacity: 0.3;
+    }
+  }
+  .value {
+    flex-grow: 1;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .number {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 600;
+  }
+  .text {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+/* .number-input:disabled{
+    background: #898989;
+} */
+  /* *:disabled {
+    background-color: dimgrey;
+    color: linen;
+    opacity: 1;
+  } */

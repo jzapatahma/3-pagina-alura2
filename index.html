@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <main>
-        <div class="cs-seccionPpal">            
-            <div class="cs-tituloPpal">
-                <h1></h1>                 
-            </div>
-            <div class="cs-contenedor2">            
-                <div class="cs-proceso">
-                    <p class="cs-textoNumero"></p>
-                    <input type="number" id="valorUsuario" min="1" max="10" class="container__input cs-numero">            
-                    <div class="cs-botones">
-                        <button onclick="verificarIntento();" class="cs-boton">Intentar</button>
-                        <button onclick="reiniciarJuego()" class="cs-boton" id="reiniciar" disabled>Nuevo Juego</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+        <!--Google Fonts and Icons-->
+        <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+        rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"/>
+        <link rel="shortcut icon" href="#" />
+    </head>
+    <body>
+        <main>
+            <div id="id-sp" class="cs-seccionPpal">            
+                <div class="cs-tituloPpal">
+                    <h1></h1>                 
+                </div>
+                <div class="cs-contenedor2">            
+                    <div class="cs-proceso">
+                        <h2 class="cs-textoNumero" >Elige un numero de intentos:</h2>
+                        <div id="id-select" class="select">
+                            <select name="format" id="id-nroIntentos" class="cs-nroIntentos">
+                                <option selected disabled>Elige un numero de intentos</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+
+                        <p id="id-textoNumero" class="cs-textoNumero"></p>
+                        
+                        <div id="id-center" class="center">                            
+                            <div id="id-number-input" class="number-input"  min="1" max="10" step="1" value="1" >
+                                <button name="1" type="button" class="btn" onclick="decrease()">
+                                    <span class="material-icons-outlined">remove</span>
+                                </button>
+                                <div class="value">
+                                    <span class="number">1</span>
+                                    <span class="text">Nro Elejido</span>
+                                </div>
+                                <button name="btn" type="button" class="btn" onclick="increase()">
+                                    <span class="material-icons-outlined">add</span>
+                                </button>
+                            </div>                                                
+                        </div>
+                        <!-- <div>
+                            <span class="text">Nro Elejido</span>
+                        </div> -->
+                        <!-- <input type="number" id="valorUsuario" class="cs-numero"> -->
+                        <!-- <input type="number" value="0" > -->
+                        <div class="cs-botones">
+                            <button onclick="verificarIntento();" class="cs-boton" id="iniciar">Intentar</button>
+                            <button onclick="reiniciarJuego()" class="cs-boton" id="reiniciar">Nuevo Juego</button>
+                        </div>
+                    </div>
+                    <div class="cs-imagen">
+                        <img src="img/ia.png" alt="Una persona mirando a la izquierda" class="cs-imagen-persona">
                     </div>
                 </div>
-                <div class="cs-imagen">
-                    <img src="img/ia.png" alt="Una persona mirando a la izquierda" class="cs-imagen-persona">
-                </div>
             </div>
-        </div>
-    </main>
-</body>
-<script src="app.js"></script>
+        </main>
+    </body>
+    <script src="app.js"></script>
 </html>
