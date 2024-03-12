@@ -3,17 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Links para los iconos de redes sociales -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!-- Link para los botones mas y menos de la animacion del numero a jugar -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone" rel="stylesheet"/>
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
-        <title>Document</title>
-        <!--Google Fonts and Icons-->
-        <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
-        rel="stylesheet"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet"/>
+        <title>Juego del numero secreto</title>
+        <!-- Acceso  a las redes sociales -->
+        <link rel="shortcut icon" href="#" />
+        <link rel="shortcut icon" href="#" />
+        <link rel="shortcut icon" href="#" />
         <link rel="shortcut icon" href="#" />
     </head>
     <body>
@@ -22,11 +22,13 @@
                 <div class="cs-tituloPpal">
                     <h1></h1>                 
                 </div>
-                <div class="cs-contenedor2">            
-                    <div class="cs-proceso">
-                        <h2 class="cs-textoNumero" >Elige un numero de intentos:</h2>
-                        <div id="id-select" class="select">
-                            <select name="format" id="id-nroIntentos" class="cs-nroIntentos">
+                <div class="cs-contenedor2">
+                    <div class="cs-proceso">   
+                        <div>
+                            <h2 class="cs-textoNumero" >Elige un numero de intentos:</h2>
+                        </div>                          
+                        <div id="id-seleccion" class="cs-seleccion">                                                       
+                            <select id="id-nroIntentos" class="cs-nroIntentos">
                                 <option selected disabled>Elige un numero de intentos</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -35,31 +37,26 @@
                                 <option value="5">5</option>
                             </select>
                         </div>
-
                         <p id="id-textoNumero" class="cs-textoNumero"></p>
-                        
-                        <div id="id-center" class="center">                            
-                            <div id="id-number-input" class="number-input"  min="1" max="10" step="1" value="1" >
-                                <button name="1" type="button" class="btn" onclick="decrease()">
+                        <section id="id-seccion-nroelegido" class="cs-seccion-nroelegido">
+                            <div id="id-caja-botones" class="cs-caja-botones"  min="1" max="10" step="1" value="1" >
+                                <button type="button" class="btn" onclick="menos()">
                                     <span class="material-icons-outlined">remove</span>
                                 </button>
                                 <div class="value">
-                                    <span class="number">1</span>
-                                    <span class="text">Nro Elejido</span>
+                                    <span class="cs-numero">1</span>                                    
                                 </div>
-                                <button name="btn" type="button" class="btn" onclick="increase()">
+                                <button type="button" class="btn" onclick="mas()">
                                     <span class="material-icons-outlined">add</span>
                                 </button>
-                            </div>                                                
-                        </div>
-                        <!-- <div>
-                            <span class="text">Nro Elejido</span>
-                        </div> -->
-                        <!-- <input type="number" id="valorUsuario" class="cs-numero"> -->
-                        <!-- <input type="number" value="0" > -->
+                                <div class="cs-caja-texto">
+                                    <span class="cs-texto">Nro Elegido</span>
+                                </div>
+                            </div>                        
+                        </section>
                         <div class="cs-botones">
-                            <button onclick="verificarIntento();" class="cs-boton" id="iniciar">Intentar</button>
-                            <button onclick="reiniciarJuego()" class="cs-boton" id="reiniciar">Nuevo Juego</button>
+                            <button onclick="verificarIntento();" class="cs-boton" id="id-iniciar">Intentar</button>
+                            <button onclick="reiniciarJuego()" class="cs-boton" id="id-reiniciar">Nuevo Juego</button>
                         </div>
                     </div>
                     <div class="cs-imagen">
@@ -68,6 +65,25 @@
                 </div>
             </div>
         </main>
+        <footer>
+            <section class="seccion-footer">
+                <div class="footer-imagenes">
+                    <img src="img/logo-one-3-2.png" alt="" class="img-footer-one">
+                    <img src="img/logo-aluralatam-oracle-2.png" alt="" class="img-footer-alura">
+                </div>                
+                <div class="footer-redes">
+                    <div>
+                        <h3 style="color: #ffffff;">Siguenos en:</h3>
+                        <i class='bx bxl-facebook-circle bx-sm bx-burst-hover espacio' style='color:#ffffff'></i>
+                        <i class='bx bxl-instagram-alt bx-sm bx-burst-hover espacio' style='color:#ffffff'></i>
+                        <i class='bx bxl-youtube bx-sm bx-burst-hover espacio' style='color:#ffffff'></i>
+                        <i class='bx bxl-google-plus-circle bx-sm bx-burst-hover espacio' style='color:#ffffff' ></i>
+                    </div>
+                    <div class="footer-derechos">
+                        <p class="copyright">&copy Powered by Jovany ZH for ONE-Alura</p>
+                    </div>
+                </div>
+            </section>
     </body>
     <script src="app.js"></script>
 </html>

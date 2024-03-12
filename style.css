@@ -1,358 +1,250 @@
 body {
-    margin: 5%;
-    background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
-    height: 100vh;
+  background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
+  /* height: 100vh; */
 }
-
 body::before {
-    background-image: url("img/code.png");
-    background-repeat: no-repeat;
-    background-position: right;
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.4;
-    z-index: -20;
+  background-image: url("img/code.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  z-index: -20;
 }
 
 .cs-seccionPpal{
-    border-radius: 24px;
-    border: 1px solid #1875E8;
-    box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
-    background-size: 100% 100%;
-    background-image: url("img/Ruido.png");
+  border-radius: 1em;
+  border: 1px solid #1875E8;
+  background-image: url("img/Ruido.png");
+  margin: 5% 5% 1%;
 }
 .cs-tituloPpal{
-    margin: 10px;
-    color: white;
-    text-align: center;
-    /* background-color: red; */
-     /* border: 5px solid; */
+  margin: 20px;
+  color: white;
+  text-align: center;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: clamp(1.5rem, 1vw + 1.7rem, 5rem);
 }
-h1 {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: clamp(1.5rem, 1vw + 1.7rem, 5rem);
-    padding-bottom: 1rem;    
-}
-
 .cs-contenedor2{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(max(250px, 30%), 1fr));
-    /* margin: 20px; */
-    /* border: 5px solid; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(250px, 30%), 1fr));
+  gap: 1em;
 }
-
 .cs-proceso{
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-     /* border: 5px solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
-
-p,
-button {
-    font-family: 'Inter', sans-serif;
+.cs-textoNumero{
+  font-size: clamp(1rem, 1vw + 1rem, 3rem);
+  color: wheat;
+  padding: .5em;
 }
-
-.cs-textoNumero {
-    font-size: clamp(1.3rem, 1vw + 1rem, 3rem);
-    font-weight: 400;
-    color: white;
-    text-align: center;
+/* Seccion elegir numero de intentos para jugar  */
+.cs-seleccion {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 3em;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: .25em;
+  margin-bottom: .5em;
 }
-
-.cs-numero{ /* Ojoooo buscar si este clase existe en el HTML*/
-    /* width: 70%;
-    height: 3em;
-    border-radius: 16px;
-    background-color: #FFF;
-    border: none;
-    color: #1875E8;
-    font-size: 34px;
-    font-family: 'Inter', sans-serif; */
-    height: 25px;    
+.cs-seleccion::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #898989;
+  cursor:pointer;
+  pointer-events:none;
+  transition:.25s all ease;
 }
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button { 
-      /* -webkit-appearance: none;  */
-      margin: 0;
+.cs-seleccion:hover::after {
+  color: white;
 }
-
-input[type=number] { 
-    /* -moz-appearance: textfield;
-    appearance: textfield; */
-    margin: 0; 
-    line-height: 100px;
+.cs-nroIntentos {
+  border:0!important;
+  background: #1875E8;
+  flex: 1;
+  color:#fff;
+  cursor:pointer;
+  font-size: 1em;
 }
-/* El siguiente codigo funciona solo para algunos navegadores */
-/* input[type=number] {
-    height: 50px;
-    font-size: 20px;
+.cs-nroIntentos::-ms-expand {
+  display: none;
 }
-input[type=number]:hover::-webkit-inner-spin-button {  
+.cs-nroIntentos[disabled]{
+  color: rebeccapurple;
+}
+.cs-nroIntentos:disabled{ /* funciona cuando desde Javascript se le asigna el atributo disables al elementos*/
+  /* background: #898989; */
+  /* background-color: #898989; */
+}
+option:disabled{
+  color:black;
+}
+/* FIN */
+/*  */
+/* INICIO Eleccion de numero a Jugar */
+.cs-seccion-nroelegido{
+  perspective: 1000px;
+  width: 75%;
+  border-radius: .5em;
+  margin-bottom: 1em;
+}
+.cs-caja-botones{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(25px, 33%), 1fr));
+  place-items: center;
+  justify-content: space-between;
+  border-radius: .5em;
+  box-sizing: border-box;
+  padding: 15px;
+  background-color: #1875E8;
+}
+.cs-caja-texto{
+  text-align: center;
+  grid-column: 1 / -1;
+  text-align: center;
+}
+.btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgb(141, 63, 172);
+  color: black;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.btn:disabled{
+  background: #898989;    
+}
+.btn span {
+  font-size: 55px;
+}
+.btn:active::before {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  animation: ripple 0.25s ease-out;
+}
+@keyframes ripple {
+  0% {
+    width: 80px;
+    height: 80px;
+    opacity: 0.8;
+  }
+  100% {
     width: 30px;
-    height: 45px;
-    
-} */
-
-/* Chrome, Safari, Edge, Opera */
-/* .cs-numero[type=number]::-webkit-inner-spin-button { 
-    -webkit-appearance: none;
-    cursor:pointer;
-    display:block;
-    width:8px;
-    color: #333;
-    text-align:center;
-    position:relative;
+    height: 30px;
+    opacity: 0.3;
+  }
 }
-
-input[type=number]::-webkit-inner-spin-button:before,
-input[type=number]::-webkit-inner-spin-button:after {
-    content: "^";
-    position:absolute;
-    right: 0;
-    font-family:monospace;
-    line-height: 25px
+.value {
+  /* flex-grow: 1;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
 }
-input[type=number]::-webkit-inner-spin-button:before {
-    top:0px;
+.cs-numero {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 60px;
+  font-weight: 600;
 }
-
-input[type=number]::-webkit-inner-spin-button:after {
-    bottom:0px;
-    -webkit-transform: rotate(180deg);
-} */
-
-
-/* Firefox */
-/* input[type=number] {
-    -moz-appearance: textfield;
-} */
-
-
-/*  */
-select {
-    /* -webkit-appearance:none;
-    -moz-appearance:none;
-    -ms-appearance:none;
-    appearance:none; */
-    /* outline:0; */
-    /* box-shadow:none; */
-    border:0!important;
-    background: #1875E8;
-    /* background-image: none; */
-    flex: 1;
-    /* padding: 0 .5em; */
-    color:#fff;
-    cursor:pointer;
-    font-size: 1em;
-    /* font-family: 'Open Sans', sans-serif; */
- }
- select::-ms-expand {
-    display: none;
- }
- select[disabled]{
-    color: rebeccapurple;
- }
- .select {
-    position: relative;
-    display: flex;
-    width: 50%;
-    height: 3em;
-    line-height: 3;
-    /* background:white; */
-    overflow: hidden;
-    border-radius: .25em;
- }
- .select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 1em;
-    background: #898989;
-    cursor:pointer;
-    pointer-events:none;
-    transition:.25s all ease;
- }
- .select:hover::after {
-    color: white;
- }
- option:disabled{
-    color:black;
-}
-#id-nroIntentos:disabled{ /* funciona cuando desde Javascript se le asigna el atributo disables al elementos*/
-    /* background: #898989; */
-    background-color: #898989;
+.cs-texto {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 /*  */
-
+/* Botonera para intentar numero secreto o reiniciar el juego */
 .cs-botones{
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    width: 100%;
-    /* width: 50%; */
-    /* background-color: rebeccapurple; */    
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  width: 100%;
 }
-
 .cs-boton{
-    width: 34%;
-    height: 3em;
-    border-radius: .5em;
-    background: #1875E8;
-    font-size: 20px;
-    font-weight: 700;
-    border: none;
-    /* padding: 16px 24px; */
-    /* width: 100%; */    
-    /* margin-top: 2rem; */
+  width: 34%;
+  height: 3em;
+  border-radius: .5em;
+  background: #1875E8;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
 }
 .cs-boton:disabled {
-    background: #898989;
+  background: #898989;
 }
 .cs-boton:hover {      
-    box-shadow: 0 0 20px orange;
-    border-color: orange;
-    cursor: pointer; 
+  box-shadow: 0 0 20px orange;
+  border-color: orange;
+  cursor: pointer; 
 }
-
 .cs-boton[disabled] {
-   box-shadow: none;
- }
-
+  box-shadow: none;
+}
+/*  */
+/* Seccion Imagen persona principal */
 .cs-imagen{
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 5px solid; */
-    /* place-content: center;
-    align-items: center;
-    justify-content: center;
-    justify-self: center;
-    justify-items: center; */
-    /* width: 100%;
-    height: 500px; */
-    /* width: 100%; */
-    /* background-color: aquamarine; */
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .cs-imagen-persona{
-    width: 25em;
-    /* height: 100px; */
+  width: 20em;
 }
-
-
-
-/* boton animado */
-.center {
-    width: 75%;
-    height: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1000px;
-  }
-  .number-input {
-    width: 380px;
-    height: 150px;
-    /* background: rgb(249, 207, 0); */
-    /* background-color: white; */
-    background: #898989;;
-    border-radius: .5em;
-    box-sizing: border-box;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: poppins;
-    transform-style: preserve-3d;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    transition: 0.25s;
-  }
-  .btn {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgb(141, 63, 172);
-    /* background: gray; */
-    color: black;
-    outline: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-  }
-
-.btn:disabled{
-    background: #898989;
-    
+/*  */
+/* Seccion FOOTER */
+footer{
+  border-radius: 24px;
+  border: 1px solid #1875E8;
+  margin: 0 5%;
 }
-  .btn span {
-    font-size: 55px;
-  }
-  .btn:active::before {
-    position: absolute;
-    content: "";
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgb(255, 255, 255);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-    animation: ripple 0.25s ease-out;
-  }
-  @keyframes ripple {
-    0% {
-      width: 80px;
-      height: 80px;
-      opacity: 0.8;
-    }
-    100% {
-      width: 30px;
-      height: 30px;
-      opacity: 0.3;
-    }
-  }
-  .value {
-    flex-grow: 1;
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .number {
-    flex-grow: 1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    font-size: 60px;
-    font-weight: 600;
-  }
-  .text {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 1px;
-  }
-
-/* .number-input:disabled{
-    background: #898989;
-} */
-  /* *:disabled {
-    background-color: dimgrey;
-    color: linen;
-    opacity: 1;
-  } */
+.footer-imagenes{
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+.img-footer-alura{
+  border-radius: .5em;
+}
+.seccion-footer img{width: 125px;}
+.footer-redes{
+  margin: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items:end;
+}
+.img-footer-alura{align-self: flex-end;}
+.footer-derechos{
+   display: flex;
+   justify-content: end;
+}
+.copyright{
+  color:#FFFFFF;
+  text-align: center;
+  font-size: clamp(.5rem, 1vw + .5rem, 2rem);;
+}

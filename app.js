@@ -4,20 +4,17 @@ let listaNumerosSorteados = [];
 let numeroMaximo = 10;
 //
 // Variables para el Nro Elegido
-let input = document.querySelector(".number-input");
+let input = document.querySelector(".cs-caja-botones");
 const min = input.getAttribute("min");
 const max = input.getAttribute("max");
 const step = Number(input.getAttribute("step") || 1);
 var numeroDeUsuario = Number(input.getAttribute("value") || 0);
-let number = document.querySelector(".number");
-number.innerHTML = numeroDeUsuario;
+let numero = document.querySelector(".cs-numero");
+numero.innerHTML = numeroDeUsuario;
 // 
 let idSelecionado = document.getElementById("id-nroIntentos");
 let NroIntentosElegidos = 0;
 //
-// Variables al arranque 
-// console.log('Arranque - NroIntentosElegidos por el usuarioa' + NroIntentosElegidos);
-// console.log('Arranque -numeroDeUsuario para jugar' + numeroDeUsuario);
 // Iniciar los titulos
 function asignarTextoElemento(elemento, texto) {
     let elementoHtml = document.querySelector(elemento);
@@ -36,16 +33,16 @@ fnDeshabilitar(true);
 function fnDeshabilitar(valor){
     if(valor){
         document.querySelector('#id-nroIntentos').setAttribute('disabled', '');
-        document.querySelector('#iniciar').setAttribute('disabled', '');
-        document.getElementById('reiniciar').removeAttribute('disabled');
-        document.getElementById("id-number-input").style.background = '#898989';
+        document.querySelector('#id-iniciar').setAttribute('disabled', '');
+        document.getElementById('id-reiniciar').removeAttribute('disabled');
+        document.getElementById("id-caja-botones").style.background = '#898989';
         document.getElementById("id-nroIntentos").value = 1;
     }else{
         document.getElementById('id-nroIntentos').removeAttribute('disabled');
-        document.getElementById("id-number-input").style.background = 'white';
+        document.getElementById("id-caja-botones").style.background = 'white';
         document.getElementById("id-nroIntentos").value = 1;
     }
-    var childNodes = document.getElementById('id-center').getElementsByTagName('*');
+    var childNodes = document.getElementById('id-caja-botones').getElementsByTagName('*');
     for (var node of childNodes) {
         node.disabled = valor;        
     }
@@ -53,19 +50,15 @@ function fnDeshabilitar(valor){
 //
 function reiniciarJuego() {
     fnDeshabilitar(false);    
-    document.getElementById("iniciar").disabled = false;
-    document.getElementById("reiniciar").disabled = true;
+    document.getElementById("id-iniciar").disabled = false;
+    document.getElementById("id-reiniciar").disabled = true;
     NroJugadas = 1;
     listaNumerosSorteados = [];
     numeroSecreto = generarNumeroSecreto();
-    // console.log('Reinicio - NroIntentosElegidos por el usuarioa' + NroIntentosElegidos);
-    // console.log('Reinicio -numeroDeUsuario para jugar' + numeroDeUsuario);
 }
 //
 function verificarIntento() {    
     NroIntentosElegidos = idSelecionado.options[idSelecionado.selectedIndex].value;
-    // console.log('Verificar - NroIntentosElegidos por el usuarioa' + NroIntentosElegidos);
-    // console.log('Verificar -numeroDeUsuario para jugar' + numeroDeUsuario);
     //
     if(NroJugadas <= NroIntentosElegidos){        
         if(numeroDeUsuario===numeroSecreto){
@@ -100,13 +93,11 @@ function verificarIntento() {
 //
 function generarNumeroSecreto() {
     let numeroGenerado = Math.floor(Math.random()*numeroMaximo)+1;
-    // Si el numero esta generado esta incluido en la lista
-    console.log(numeroGenerado);
-    console.log(listaNumerosSorteados);
-    //Si ya sorteamos los numero a adivinar
+    // Si el numero esta generado esta incluido en la lista    
+    // Si ya sorteamos los numero a adivinar
     if (listaNumerosSorteados.length == numeroMaximo) {
             asignarTextoElemento('p','Se sortearon todos lo snumero posibles');
-            document.querySelector('#iniciar').setAttribute('disabled','true');           
+            document.querySelector('#id-iniciar').setAttribute('disabled','true');           
     } else {
         if (listaNumerosSorteados.includes(numeroGenerado)) {
             return generarNumeroSecreto();
@@ -117,7 +108,7 @@ function generarNumeroSecreto() {
     }
 }
 //
-function increase() {
+function mas() {
     if (max) {
         if (numeroDeUsuario < max && numeroDeUsuario + step <= max) {
             numeroDeUsuario += step;
@@ -129,10 +120,10 @@ function increase() {
     setTimeout(() => {
         input.style.transform = "rotateY(0deg)";
     }, 150);
-    number.innerHTML = numeroDeUsuario;
+    numero.innerHTML = numeroDeUsuario;
 }
 //
-function decrease() {
+function menos() {
     if (min) {
         if (numeroDeUsuario > min && numeroDeUsuario - step >= min) {
             numeroDeUsuario -= step;
@@ -144,5 +135,5 @@ function decrease() {
     setTimeout(() => {
         input.style.transform = "rotateY(0deg)";
     }, 150);
-    number.innerHTML = numeroDeUsuario;
+    numero.innerHTML = numeroDeUsuario;
 }
